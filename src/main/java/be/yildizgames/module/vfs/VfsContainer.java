@@ -41,6 +41,7 @@ public interface VfsContainer {
      */
     VfsFile openFile(String name);
 
-    VfsFile addFile(Path path);
+    void reinit();
 
+    Path getPath();
 }
