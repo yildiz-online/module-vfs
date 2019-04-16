@@ -24,48 +24,13 @@
  *
  */
 
-package be.yildizgames.module.vfs.exception;
+package be.yildizgames.module.vfs;
 
 import java.io.IOException;
 import java.nio.file.Path;
 
-/**
- * Technical exception for Virtual file systems.
- * @author Grégory Van den Borre
- */
-public class VfsException extends IllegalStateException {
+public interface VfsContainerWrite {
 
-    /**
-     * Private constructor, New instance are from static methods.
-     * @param message Error message.
-     */
-    private VfsException(String message) {
-        super(message);
-    }
+    VfsFile addFile(Path path);
 
-    /**
-     * Private constructor, New instance are from static methods.
-     * @param root Root exception.
-     */
-    private VfsException(Exception root) {
-        super(root);
-    }
-
-    /**
-     * Exception thrown when a VFS container does not exists.
-     * @param container Container name.
-     * @return The created exception.
-     */
-    public static VfsException containerNotExists(Path container) {
-        return new VfsException("The container " + container + " does not exists");
-    }
-
-    /**
-     * Exception thrown when an IO is thrown.
-     * @param e Root io exception.
-     * @return The created exception.
-     */
-    public static VfsException io(IOException e) {
-        return new VfsException(e);
-    }
 }
