@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--
-  ~
   ~ This file is part of the Yildiz-Engine project, licenced under the MIT License  (MIT)
   ~
   ~ Copyright (c) 2019 Grégory Van den Borre
@@ -22,16 +22,16 @@
   ~  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  SOFTWARE.
   ~
-  ~
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
+
   <name>Yildiz-Engine Module Vfs</name>
   <description>Module for the virtual file system.</description>
+  <inceptionYear>2019</inceptionYear>
   <url>https://engine.yildiz-games.be</url>
   
   <artifactId>module-vfs</artifactId>
@@ -42,6 +42,14 @@
     <artifactId>parent</artifactId>
     <version>3.0.5</version>
   </parent>
+
+  <packaging>jar</packaging>
+
+  <scm>
+    <connection>scm:git:https://github.com/yildiz-online/module-vfs</connection>
+    <developerConnection>scm:git:https://github.com/yildiz-online/module-vfs</developerConnection>
+    <url>https://github.com/yildiz-online/module-vfs</url>
+  </scm>
 
   <dependencies>
     <dependency>
