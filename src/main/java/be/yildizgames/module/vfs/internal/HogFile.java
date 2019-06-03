@@ -23,9 +23,6 @@
  */
 package be.yildizgames.module.vfs.internal;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
@@ -49,7 +46,7 @@ class HogFile {
     /**
      * Associated logger.
      */
-    private final Logger logger = LoggerFactory.getLogger(HogFile.class);
+    private final System.Logger logger = System.getLogger(HogFile.class.getName());
 
     final void createContainer(Path file) throws IOException {
         Files.write(file, "DHF".getBytes());
@@ -59,7 +56,7 @@ class HogFile {
         try {
             int nameLength = toAdd.getFileName().toString().length();
             if (nameLength > 13) {
-                this.logger.warn("VFS HOG files are expected to be maximum 13 chars, {} is too long, cutting it to fit.", toAdd.getFileName().toString());
+                this.logger.log(System.Logger.Level.WARNING, "VFS HOG files are expected to be maximum 13 chars, {} is too long, cutting it to fit.", toAdd.getFileName().toString());
                 String name = toAdd.getFileName().toString().substring(nameLength - 14, nameLength - 1);
                 Files.write(file, name.getBytes(), StandardOpenOption.APPEND);
             } else {
@@ -77,7 +74,7 @@ class HogFile {
             Files.write(file, sizeByte , StandardOpenOption.APPEND);
             Files.write(file, Files.readAllBytes(toAdd), StandardOpenOption.APPEND);
         } catch (IOException e) {
-            this.logger.error("Error adding file {} to archive {}.", toAdd.toString(), file.toString(), e);
+            this.logger.log(System.Logger.Level.ERROR, "Error adding file {} to archive {}.", toAdd.toString(), file.toString(), e);
         }
     }
 
