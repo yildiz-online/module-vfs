@@ -26,7 +26,6 @@
 
 package be.yildizgames.module.vfs;
 
-import java.io.IOException;
 import java.nio.file.Path;
 
 public interface VfsContainerWrite {

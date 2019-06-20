@@ -1,7 +1,6 @@
 package be.yildizgames.module.vfs.dummy;
 
 import be.yildizgames.module.vfs.Vfs;
-import be.yildizgames.module.vfs.VfsArchiveFormat;
 import be.yildizgames.module.vfs.VfsArchiveInfo;
 import be.yildizgames.module.vfs.VfsContainer;
 
