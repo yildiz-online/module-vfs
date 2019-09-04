@@ -23,29 +23,28 @@
  *
  *
  */
-package be.yildizgames.module.vfs.internal;
+package be.yildizgames.module.vfs.dummy;
 
 import be.yildizgames.module.vfs.VfsEngine;
-import be.yildizgames.module.vfs.VfsArchiveFormat;
+import be.yildizgames.module.vfs.VfsArchiveInfo;
 import be.yildizgames.module.vfs.VfsContainer;
-import be.yildizgames.module.vfs.VfsWrite;
 
-import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
-public class BaseVfs implements VfsWrite {
+/**
+ * @author Grégory Van den Borre
+ */
+public class DummyVfsEngine implements VfsEngine {
 
-    private final VfsEngine vfs;
-
-    private final HogFile hogFile = new HogFile();
-
-    protected BaseVfs(VfsEngine vfs) {
-        this.vfs = vfs;
+    @Override
+    public final VfsContainer registerContainer(Path path) {
+        return new DummyVfsContainer();
     }
 
     @Override
-    public final VfsContainer createContainer(Path path, VfsArchiveFormat format) throws IOException {
-        this.hogFile.createContainer(path);
-        return this.vfs.registerContainer(path);
+    public final List<VfsArchiveInfo> getSupportedArchiveInfo() {
+        return new ArrayList<>();
     }
 }

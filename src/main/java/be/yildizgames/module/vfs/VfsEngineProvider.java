@@ -23,28 +23,18 @@
  *
  *
  */
-
 package be.yildizgames.module.vfs;
 
-import java.nio.file.Path;
-import java.util.List;
-
 /**
- * A VFS (virtual file system) provide a layer of abstraction on top on a file system, or an archive file.
+ * Create the engine implementation.
+ *
  * @author Grégory Van den Borre
  */
-public interface Vfs {
+public interface VfsEngineProvider {
 
     /**
-     * Register a container to be used with the VFS.
-     * @param path Container path.
-     * @return The created vfs container.
+     * Provide the VFS engine implementation.
+     * @return The engine implementation.
      */
-    VfsContainer registerContainer(Path path);
-
-    /**
-     * Provide the list of all supported archive type information.
-     * @return The list.
-     */
-    List<VfsArchiveInfo> getSupportedArchiveInfo();
+    VfsEngine getVfsEngine();
 }

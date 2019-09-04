@@ -30,6 +30,7 @@ import java.nio.file.Path;
 
 /**
  * A container is a virtual directory containing files and sub directories.
+ * The VFS can contain several container, the VFS itself is then the aggregation of those containers.
  * @author Grégory Van den Borre
  */
 public interface VfsContainer {

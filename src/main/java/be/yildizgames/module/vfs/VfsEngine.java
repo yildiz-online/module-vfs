@@ -23,28 +23,28 @@
  *
  *
  */
-package be.yildizgames.module.vfs.dummy;
 
-import be.yildizgames.module.vfs.Vfs;
-import be.yildizgames.module.vfs.VfsArchiveInfo;
-import be.yildizgames.module.vfs.VfsContainer;
+package be.yildizgames.module.vfs;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * A VFS (virtual file system) provide a layer of abstraction on top on a file system, or an archive file.
  * @author Grégory Van den Borre
  */
-public class DummyVfs implements Vfs {
+public interface VfsEngine {
 
-    @Override
-    public final VfsContainer registerContainer(Path path) {
-        return new DummyVfsContainer();
-    }
+    /**
+     * Register a container to be used with the VFS.
+     * @param path Container path.
+     * @return The created vfs container.
+     */
+    VfsContainer registerContainer(Path path);
 
-    @Override
-    public final List<VfsArchiveInfo> getSupportedArchiveInfo() {
-        return new ArrayList<>();
-    }
+    /**
+     * Provide the list of all supported archive type information.
+     * @return The list.
+     */
+    List<VfsArchiveInfo> getSupportedArchiveInfo();
 }
