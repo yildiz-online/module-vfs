@@ -31,18 +31,12 @@ import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 
-public class DiskVfsFile implements VfsFile {
-
-    private final Path file;
-
-    public DiskVfsFile(Path file) {
-        this.file = file;
-    }
+public record DiskVfsFile(Path file) implements VfsFile {
 
     @Override
     public long getSize() {
-        try {
-            return FileChannel.open(this.file).size();
+        try (var f = FileChannel.open(this.file)) {
+            return f.size();
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }

@@ -30,14 +30,7 @@ import be.yildizgames.module.vfs.VfsFile;
 
 import java.nio.file.Path;
 
-public class DiskVfsContainer implements VfsContainer {
-
-    private final Path path;
-
-    public DiskVfsContainer(Path path) {
-        super();
-        this.path = path;
-    }
+public record DiskVfsContainer(Path path) implements VfsContainer {
 
     @Override
     public VfsFile openFile(String name) {
