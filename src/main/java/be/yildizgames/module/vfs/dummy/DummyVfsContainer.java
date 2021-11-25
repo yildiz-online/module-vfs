@@ -37,17 +37,17 @@ import java.nio.file.Paths;
 public class DummyVfsContainer implements VfsContainer {
 
     @Override
-    public VfsFile openFile(String name) {
+    public final VfsFile openFile(String name) {
         return new DummyVfsFile();
     }
 
     @Override
-    public void reinit() {
-
+    public final void reinit() {
+        //Empty implementation.
     }
 
     @Override
-    public Path getPath() {
+    public final Path getPath() {
         return Paths.get("");
     }
 }
